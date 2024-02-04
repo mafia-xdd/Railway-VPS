@@ -17,7 +17,7 @@ RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-linux-am
     && mv ngrok /usr/local/bin/ngrok
 
 # Create startup script
-RUN echo "#!/bin/bash" > /kaal.sh \
+RUN echo "#!/bin/bash" > /odiyaanT.sh \
     && echo "ngrok authtoken ${NGROK_TOKEN}" >> /odiyaanT.sh \
     && echo "ngrok http --region=us 80 &" >> /odiyaanT.sh \  # Add ngrok http command here
     && echo "/usr/sbin/sshd -D" >> /odiyaanT.sh
