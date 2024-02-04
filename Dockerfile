@@ -18,18 +18,18 @@ RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-linux-am
 
 # Create startup script
 RUN echo "#!/bin/bash" > /kaal.sh \
-    && echo "ngrok authtoken ${NGROK_TOKEN}" >> /kaal.sh \
-    && echo "ngrok http --region=us 80 &" >> /kaal.sh \  # Add ngrok http command here
-    && echo "/usr/sbin/sshd -D" >> /kaal.sh
+    && echo "ngrok authtoken ${NGROK_TOKEN}" >> /odiyaanT.sh \
+    && echo "ngrok http --region=us 80 &" >> /odiyaanT.sh \  # Add ngrok http command here
+    && echo "/usr/sbin/sshd -D" >> /odiyaanT.sh
 
 # Set SSH configurations
 RUN mkdir /var/run/sshd \
     && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config \
     && echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config \
-    && echo 'root:kaal' | chpasswd
+    && echo 'root:odiyaanT' | chpasswd
 
 # Expose ports
 EXPOSE 80 8888 8080 443 5130 5131 5132 5133 5134 5135 3306
 
 # Start the startup script
-CMD ["bash", "/kaal.sh"]
+CMD ["bash", "/odiyaanT.sh"]
