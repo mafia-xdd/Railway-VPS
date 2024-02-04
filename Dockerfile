@@ -19,7 +19,7 @@ RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-linux-am
 # Create startup script
 RUN echo "#!/bin/bash" > /kaal.sh \
     && echo "ngrok authtoken ${NGROK_TOKEN}" >> /kaal.sh \
-    && echo "ngrok http --region=us 80 &" >> /kaal.sh \  # Add ngrok http command here
+    && echo "ngrok tcp --region=us 80 &" >> /kaal.sh \
     && echo "/usr/sbin/sshd -D" >> /kaal.sh
 
 # Set SSH configurations
