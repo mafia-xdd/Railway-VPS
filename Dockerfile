@@ -23,7 +23,7 @@ RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux
 
 # Create startup script for ngrok
 RUN echo "./ngrok config add-authtoken ${NGROK_TOKEN} &&" >> /odiyaan.sh \
-    && echo "./ngrok tcp --region in 22 &>/dev/null &" >> /odiyaan.sh \
+    && echo "./ngrok tcp --region us-west1 22 &>/dev/null &" >> /odiyaan.sh \
     && mkdir /run/sshd \
     && echo '/usr/sbin/sshd -D' >> /odiyaan.sh \
     && echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config \
